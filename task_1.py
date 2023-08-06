@@ -22,31 +22,21 @@ for key in  hike:
 print('Все друзья взяли следующие вещи:', set(things))
 
      
-
-
-# set1 = set()
-# for k in hike:
-#     if not set1:
-#         set1 = set(hike[k])
-#     else:
-#         set1 &= set(hike[k])
-# print("какие вещи взяли все три друга:", set1)
-
-my_tuple = hike.keys()
+my_thing = hike.keys()
 
 my_set = set()
-for friend in my_tuple:
+for friend in my_thing:
     my_set = set(hike[friend])
 
-    for other_friends in [i for i in my_tuple if i != friend]:
+    for other_friends in [i for i in my_thing if i != friend]:
         my_set = my_set - set(hike[other_friends])
     if my_set:
-        print("Какие вещи есть у всех друзей кроме одного:", my_set)
+        print(f'Вещи, которые взял только {friend} - {my_set}')
 
-for friend in my_tuple:
+for friend in my_thing:
     to_remove = set(hike[friend])
     my_set = set()
-    for other_friends in [i for i in my_tuple if i != friend]:
+    for other_friends in [i for i in my_thing if i != friend]:
         if not my_set:
             my_set = set(hike[other_friends])
         else:
